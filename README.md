@@ -41,7 +41,7 @@ Alternatively, [This website](http://jsonviewer.stack.hu/) has done a great job 
 
 ```json
 {
-    classname: {
+    "classname": {
         "url": "url here",
         "number": "class number here as int",
         "units": "Units here as int",
@@ -66,10 +66,8 @@ Alternatively, [This website](http://jsonviewer.stack.hu/) has done a great job 
                 "capacity": "Capacity as int",
                 "waitlist": "number on waitlist as int"
             },
-            ...
         ]
     },
-    ...
 }
 ```
 
