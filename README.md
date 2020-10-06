@@ -42,29 +42,29 @@ Alternatively, [This website](http://jsonviewer.stack.hu/) has done a great job 
 ```json
 {
     classname: {
-        "url": "url goes here",
-        "number": class number here"
-        "units": Units goes here,
-        "GE": "GE goes here",
-        "capacity": class capacity,
-        "enrolled": enrolled number,
-        "waitlist": number on waitlist,
+        "url": "url here",
+        "number": "class number here as int",
+        "units": "Units here as int",
+        "ge": "GE here",
+        "capacity": "class capacity as int",
+        "enrolled": "enrolled number as int",
+        "waitlist": "number on waitlist as int",
         "meeting":{
-            "day": "Days here",
+            "day": "Days, such as TuTh",
             "time": "Time here as str",
-            "room": "Room here as stringz',
+            "room": "Room here as string",
             "instructor": "Professor goes here",
         },
         "discussions": [
             {
-                "number": discussion_number:
-                "day": "Days here",
+                "number": "discussion_number as int",
+                "day": "Days here, such as TuTh",
                 "time": "Time here as str",
-                "room": "Room here as string,
-                "instructor": "Professor goes here",
-                "enrolled": "Number enrolled",
-                "capacity": "cap",
-                "waitlist": number on waitlist
+                "room": "Room here as string",
+                "instructor": "Professor here",
+                "enrolled": "Number enrolled as int",
+                "capacity": "Capacity as int",
+                "waitlist": "number on waitlist as int"
             },
             ...
         ]
