@@ -46,7 +46,7 @@ def get_dict():
     while start_num != -1:
         if start_num == 0:
             data = {
-                'binds[:term]': '2208',
+                'binds[:term]': '2210',
                 'binds[:reg_status]': 'all',
                 'action': 'results',
                 'rec_start': '0',
@@ -54,7 +54,7 @@ def get_dict():
             }
         else:
             data = {
-                'binds[:term]': '2208',
+                'binds[:term]': '2210',
                 'binds[:reg_status]': 'all',
                 'action': 'next',
                 'rec_start': '{}'.format(start_num-PAGE_SIZE),
@@ -74,7 +74,7 @@ def get_dict():
             elif i == (PAGE_SIZE-1):
                 start_num += PAGE_SIZE
             class_name = element.find("a").text.replace(u'\xa0', u' ')
-            #print(class_name)
+            print(class_name)
             class_url = 'https://pisa.ucsc.edu/class_search/' + element.find("a").get('href')
 
             class_info = requests.get(class_url)
@@ -88,24 +88,23 @@ def get_dict():
             class_enrolled = int(class_info_section[9].text)
             class_waitlist_enrolled = int(class_info_section[11].text)
 
+            class_meeting_section = class_soup.find_all("div", {"class": "panel-body"})[-2]
+            class_meeting_info = class_soup.find_all("td")
 
-            # get class meeting information
-            class_meeting_section = class_soup.find_all("td")
-
-            if class_meeting_section[0].text.strip() == "Class":
+            if len(class_meeting_info) == 0 or class_meeting_info[0].text.strip() == "Class":
                 class_day = "Combined"
                 class_time = "Combined"
                 class_room = "Combined"
                 class_instructor = "Combined"
             else:
-                if class_meeting_section[0].text.strip() == "Cancelled":
+                if class_meeting_info[0].text.strip() == "Cancelled":
                     class_day = "Cancelled"
                     class_time = "Cancelled"
                 else:
-                    class_day = class_meeting_section[0].text.split(" ")[0]
-                    class_time = class_meeting_section[0].text.split(" ")[1]
-                class_room = class_meeting_section[1].text
-                class_instructor = class_meeting_section[2].text
+                    class_day = class_meeting_info[0].text.split(" ")[0]
+                    class_time = class_meeting_info[0].text.split(" ")[1]
+                class_room = class_meeting_info[1].text
+                class_instructor = class_meeting_info[2].text
             meeting_dict = {
                 "day":class_day,
                 "time":class_time,
