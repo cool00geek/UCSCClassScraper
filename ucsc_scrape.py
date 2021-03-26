@@ -46,7 +46,7 @@ def get_dict():
     while start_num != -1:
         if start_num == 0:
             data = {
-                'binds[:term]': '2210',
+                'binds[:term]': '2212',
                 'binds[:reg_status]': 'all',
                 'action': 'results',
                 'rec_start': '0',
@@ -54,7 +54,7 @@ def get_dict():
             }
         else:
             data = {
-                'binds[:term]': '2210',
+                'binds[:term]': '2212',
                 'binds[:reg_status]': 'all',
                 'action': 'next',
                 'rec_start': '{}'.format(start_num-PAGE_SIZE),
